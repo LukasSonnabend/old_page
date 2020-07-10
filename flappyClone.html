@@ -6,9 +6,11 @@
     <script src="flappyFunctions.js"> </script>
 </head>
 <body class="disable-dbl-tap-zoom">
-    <h1>Flappy Circle</h1>
+
+    
     <canvas onclick="fly()" id="chap2" height="300" width="600"></canvas>
     <p>Press space to fly</p>
+    <p>Tap anywhere on mobile to fly</p>
 
 <script>
     var canvas = document.getElementById("chap2");
@@ -258,16 +260,13 @@
 <style>
     body{
         text-align: center;
-        background: black;
-    }
-    h1{
-        color: white;
+        background: white;
     }
     canvas{
         background: white;
     }
-    p{
-        color: white;
+    p, h1{
+        color: black;
     }
     .disable-dbl-tap-zoom {
     touch-action: manipulation;

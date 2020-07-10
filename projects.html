@@ -8,12 +8,12 @@
     <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
 
-    <title>Hello, world!</title>
+    <title>Projects</title>
   </head>
   <body>
-    <div id="page-container">
+    <div id="page-container"> 
       <!-- Navbar start -->
-    <nav class="navbar navbar-expand-md navbar-light bg-light">
+      <nav class="navbar navbar-expand-md navbar-light bg-light">
         <a class="navbar-brand" href="/">LS</a>
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
           <span class="navbar-toggler-icon"></span>
@@ -22,7 +22,7 @@
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
           <ul class="navbar-nav mr-auto">
             <li class="nav-item">
-                <a class="nav-link" href="./projects.html">Projects</a>
+                <a class="nav-link active" href="#">Projects</a>
               </li>
             <li class="nav-item dropdown">
               <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
@@ -44,25 +44,53 @@
       </nav>
       <!-- Navbar end -->
       <div id="content-wrap">
-        <div id="main" class="col-12">  
-            <div class="jumbotron sm-col-10 md-col-8">
-                <h1 class="display-10">Welcome to my GitHub Projects</h1>
-                <p class="lead">This is a simple hero unit, a simple jumbotron-style component for calling extra attention to featured content or information.</p>
-                <hr class="my-4">
-                <p>My Project Overview:</p>
-                <a class="btn btn-primary btn-lg" href="./projects.html" role="button">Take me to the list!</a>
+    <div id="main" class="col-12">  
+        <h1>Projects</h1>
+        <hr>
+        
+        <h2>JavaScript</h2>
+        <ul id="projCards">
+        <li>
+        <div class="card" style="width: 18rem;">
+            <div class="card-header">
+                Flappy Bird Clone
+              </div>
+            <img src="https://via.placeholder.com/80" class="card-img-top" alt="...">
+            <div class="card-body">
+                <p class="card-text">My first attempt at a JavaScript based Game. A rough implementation to learn the basics.</p>
+                <div id="centered">
+                    <a href="./flappyClone.html"><button type="button" class="btn btn-primary">Demo</button></a>
+                </div>
+                <label>Last Update 09.07.2020</label>
             </div>
+          </div>
+        </li>
+            <li>
+                <div class="card" style="width: 18rem;">
+                    <div class="card-header">
+                        Accelero
+                      </div>
+                    <img src="https://via.placeholder.com/80" class="card-img-top" alt="...">
+                    <div class="card-body">
+                    <p class="card-text">Reads Accelerometer of supported devices and moves object accordingly.</p>
+                    <div id="centered">
+                        <a href="./accelero.html"><button type="button" class="btn btn-primary">Demo</button></a>
+                    </div>
+                    <label>Last Update 09.07.2020</label>
+                    </div>
+                </div>
+            </li>
+        </ul>
+    </div>
+    </div>
+    <footer class="page-footer blue">
+        <div class="col-md-6 mt-md-0 mt-3">
+            <h5 class="text-uppercase">Footer Content</h5>
+            <p>Here you can use rows and columns to organize your footer content.</p>
         </div>
+        <div class="footer-copyright text-center">© 2020 Copyright: Lukas Sonnabend</div>
+    </footer>  
     </div>
-        <footer class="page-footer blue">
-            <div class="col-md-6 mt-md-0 mt-3">
-                <h5 class="text-uppercase">Lukas Sonnabend</h5>
-                <p>This page is brought to you by GitHub Pages</p>
-            </div>
-            <div class="footer-copyright text-center">© 2020 Copyright: Lukas Sonnabend</div>
-        </footer>  
-    </div>
- 
     <!-- Optional JavaScript -->
     <!-- jQuery first, then Popper.js, then Bootstrap JS -->
     <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
@@ -71,7 +99,7 @@
   </body>
 </html>
 <style>
-    #page-container {
+        #page-container {
     position: relative;
     min-height: 100vh;    
     }
@@ -84,7 +112,46 @@
         margin: 0 auto;
         text-align: center;
     }
-.page-footer {
+    .page-footer {
+        position: absolute;
+        bottom: 0;
+        width: 100%;
+        height: 10rem;            /* Footer height */
+        background: #007bff;;
+    }
+    #main > div, h1, h2 {
+        margin: 0 auto;
+        text-align: center;
+    }
+    .card-header, #centered{
+        text-align: center;
+    }
+
+    #projCards{
+        display: flex;
+        flex-wrap: wrap;
+        list-style-type: none;
+        padding: 0;
+        justify-content: center;
+    }
+    .card{
+        margin-bottom: 1em;
+    }
+    .card > img{
+        max-width: 120px;
+        margin: 0 auto;
+        margin-top: 20px;
+    }
+    .card-text {
+        min-height: 100px;
+    }
+    .card-body{
+        padding-bottom: 0;
+    }
+    label{
+        margin: 0.5em 0 0 0;
+    }
+    .page-footer {
     position: absolute;
     bottom: 0;
     width: 100%;
