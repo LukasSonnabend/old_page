@@ -1,0 +1,275 @@
+<!DOCTYPE html>
+<html class="disable-dbl-tap-zoom" onclick="fly()">
+<head>
+    <title>Chapter 2 - Grid System</title>
+    <script src="drawing.js"> </script>
+    <script src="flappyFunctions.js"> </script>
+</head>
+<body class="disable-dbl-tap-zoom">
+    <h1>Flappy Circle</h1>
+    <canvas onclick="fly()" id="chap2" height="300" width="600"></canvas>
+    <p>Press space to fly</p>
+
+<script>
+    var canvas = document.getElementById("chap2");
+    var context = canvas.getContext("2d");
+    //draw_grid(context);
+
+
+    // function play(){
+    //     console.log(obst1);
+    //     obst1.x += 1
+    //     //objects not moving
+    // }
+
+    var topHeight1 = topHeight2 = topHeight3 = topHeight4 = 100 * Math.random(0.5) + 10;
+    
+    function frame(){
+        context.clearRect(0, 0, context.canvas.width, context.canvas.height);
+        draw(context);
+    }
+
+    //initialValues
+
+
+    var score = 0;
+
+    var x1 = 200;
+    scored1 = false;
+    var x2 = 300;
+    var x3 = 400;
+    var x4 = 500;
+    var x5 = 600;
+    var x6 = 700;
+    var x7 = 800;
+    var x8 = 900;
+
+    var y1 = 100;
+    var y2 = 0;
+    var topOriented = 0;
+
+    var standardHeight = 100;
+    
+    var y3 = 100;
+    var y4 = 0;
+    var y5 = 100;
+    var y6 = 0;
+    var y7 = 100;
+    var y8 = 0;
+
+    var xMovement = 1
+
+    scored1 = false;
+    scored2 = false;
+    scored3 = false;
+    scored4 = false;
+    scored5 = false;
+    scored6 = false;
+    scored7 = false;
+    scored8 = false;
+
+
+    function obstacleMovement(){
+        // come up with solution fo scoring eventuell set boolean for reset or not and put that into condition for score += 100;
+        if(x1 > -30){
+            x1 -= xMovement;
+            if (Math.round(x1) <= playerX && scored1 == false){
+                score += 100;
+                scored1 = true;
+            }
+        }
+        else{
+            x1 = 800;
+            scored1 = false;
+        }
+
+        if(x2 > -30){
+            x2 -= xMovement;
+            if (Math.round(x2) <= playerX && scored2 == false){
+                score += 100;
+                scored2 = true;
+            }
+        }
+        else{
+            x2 = 800;
+            scored2 = false;
+            topHeight1 = 100 * Math.random(0.5) + 10;
+        }
+
+        if(x3 > -30){
+            x3 -= xMovement;
+            if (Math.round(x3) <= playerX && scored3 == false){
+                score += 100;
+                scored3 = true;
+            }
+        }
+        else{
+            x3 = 800;
+            scored3 = false;
+        }
+
+        if(x4 > -30){
+            x4 -= xMovement;
+            if (Math.round(x4) <= playerX && scored4 == false){
+                score += 100;
+                scored4 = true;
+            }
+        }
+        else{
+            x4 = 800;
+            scored4 = false;
+            topHeight2 = 100 * Math.random(0.5) + 10;
+        }
+
+        if(x5 > -30){
+            x5 -= xMovement;
+            if (Math.round(x5) <= playerX && scored5 == false){
+                score += 100;
+                scored5 = true;
+            }
+        }
+        else{
+            x5 = 800;
+            scored5 = false;
+        }
+
+        if(x6 > -30){
+            x6 -= xMovement;
+            if (Math.round(x6) <= playerX && scored6 == false){
+                score += 100;
+                scored6 = true;
+            }
+        }
+        else{
+            x6 = 800;
+            scored6 = false;
+            topHeight3 = 100 * Math.random(0.5) + 10;
+        }
+
+        if(x7 > -30){
+            x7 -= xMovement;
+            if (Math.round(x7) == playerX && scored7 == false){
+                score += 100;
+                scored7 = true;
+            }
+        }
+        else{
+            x7 = 800;
+            scored7 = false;
+        }
+
+        if(x8 > -30){
+            x8 -= xMovement;
+            if (Math.round(x8) == playerX && scored8 == false){
+                score += 100;
+                scored8 = true;
+            }
+        }
+        else{
+            x8 = 800;
+            scored8 = false;
+            topHeight4 = 100 * Math.random(0.5) + 15;
+        }
+    }
+
+    var yspeed = 0, gravity = 0.1;
+    function physics(){
+    //physics
+    if(playerY < 180){
+        playerY += yspeed;
+        yspeed += gravity;
+    }
+    else{
+        yspeed = 0;
+    }
+}
+
+    //playershiz
+    var playerX = 50;
+    var playerY = 100;
+
+    function draw(ctx){        
+        draw_grid(ctx);
+            //draw obstacles
+            //hindernisse
+                            //obstacles               this +     this musst be 200                    
+            let obst1 = new drawObstacle(context, x1, y1, 30, standardHeight, "black");
+            let obst2 = new drawObstacle(context, x2, y2, 30, topHeight1, "blue");
+            let obst3 = new drawObstacle(context, x3, y3, 30, standardHeight, "green");
+            let obst4 = new drawObstacle(context, x4, y4, 30, topHeight2, "blue");
+            let obst5 = new drawObstacle(context, x5, y5, 30, standardHeight, "red");
+            let obst6 = new drawObstacle(context, x6, y6, 30, topHeight3, "blue");
+            let obst7 = new drawObstacle(context, x7, y7, 30, standardHeight, "red");
+            let obst8 = new drawObstacle(context, x8, y8, 30, topHeight4, "blue");
+
+
+
+        var ground = drawGround(ctx);
+        drawScore(ctx, score);
+        drawBird(ctx, playerX, playerY, 15);
+        collision(playerX, playerY, x1, y1, standardHeight);
+        collision(playerX, playerY, x2, y2, topHeight1);
+        collision(playerX, playerY, x3, y3, standardHeight);
+        collision(playerX, playerY, x4, y4, topHeight2);
+        collision(playerX, playerY, x5, y5, standardHeight);
+        collision(playerX, playerY, x6, y6, topHeight3);
+        collision(playerX, playerY, x7, y7, standardHeight);    
+        collision(playerX, playerY, x8, y8, topHeight4);
+    
+
+    }  
+
+    document.body.addEventListener('keydown', function(event) 
+                                       { 
+            const key = event.key; 
+            switch (key) {  
+                case " ":
+                    fly();
+                    break;
+            }});
+
+    function fly(){
+        if (playerY > 30){
+        playerY += -15;
+        yspeed = 0;
+        gravity = 0.6; 
+        console.log(gravity);
+        }
+    }
+
+    function speedUp(){
+        
+        if (score % 500 == 0 && score != 0 && xMovement >= 2){
+        xMovement += 0.1;
+        }
+    }
+    
+    
+
+    setInterval(frame, 1000.0/60.0);
+    setInterval(obstacleMovement, 15);
+    setInterval(physics, 50);
+    setInterval(speedUp, 1000);
+</script>
+<br>
+
+</body>
+</html>
+<style>
+    body{
+        text-align: center;
+        background: black;
+    }
+    h1{
+        color: white;
+    }
+    canvas{
+        background: white;
+    }
+    p{
+        color: white;
+    }
+    .disable-dbl-tap-zoom {
+    touch-action: manipulation;
+}
+</style>
