@@ -11,7 +11,7 @@
     <title>Projects</title>
   </head>
   <body>
-    <div id="page-container"> 
+    <div class="content"> 
       <!-- Navbar start -->
       <nav class="navbar navbar-expand-md navbar-light bg-light">
         <a class="navbar-brand" href="/">LS</a>
@@ -40,6 +40,12 @@
                 <a class="nav-link disabled" href="#" tabindex="-1" aria-disabled="true">C++</a>
               </li>
           </ul>
+
+          <ul class="navbar-nav ml-auto">
+            <li class="nav-item">
+                <a class="nav-link" href="https://www.linkedin.com/in/lukas-sonnabend-8b1323105/" target="_blank" rel="noopener noreferrer"><img height="30px"src="https://content.linkedin.com/content/dam/me/business/en-us/amp/brand-site/v2/bg/LI-Logo.svg.original.svg"></a>
+            </li>
+        </ul>
         </div>
       </nav>
       <!-- Navbar end -->
@@ -63,6 +69,7 @@
                 <p class="card-text">My first attempt at a JavaScript based Game. A rough implementation to learn the basics.</p>
                 <div id="centered">
                     <a href="./flappyClone.html"><button type="button" class="btn btn-primary">Demo</button></a>
+                    <a href="https://github.com/LukasSonnabend/lukassonnabend.github.io/blob/master/flappyClone.html"><button type="button" class="btn btn-secondary">Code</button></a>
                 </div>
                 <label>Last Update 09.07.2020</label>
             </div>
@@ -81,8 +88,9 @@
                     <p class="card-text">Reads Accelerometer of supported devices and moves object accordingly.</p>
                     <div id="centered">
                         <a href="./accelero.html"><button type="button" class="btn btn-primary">Demo</button></a>
+                        <a href="https://github.com/LukasSonnabend/lukassonnabend.github.io/blob/master/accelero.html"><button type="button" class="btn btn-secondary">Code</button></a>
                     </div>
-                    <label>Last Update 09.07.2020</label>
+                    <label>Last Update 11.07.2020</label>
                     </div>
                 </div>
             </li>
@@ -103,7 +111,7 @@
               <p class="card-text">Using Flask the idea was to create a trip planning app. Everything is server side and thus a bit slow
                 and the main reason i abandoned the project as of now.
               </p>
-              <p style="text-align: center;">
+              <p style="text-align: center; font-weight: bold;">
                 Hosted on Heroku
               </p>
               
@@ -134,24 +142,25 @@
   </body>
 </html>
 <style>
-        #page-container {
+    html, body {
+  height: 100%;
+  }
+  body {
+    display: flex;
+    flex-direction: column;
+  }
+  .content {
+    flex: 1 0 auto;
+  }
+
+  #page-container {
     position: relative;
     min-height: 100vh;    
     }
 
-    #content-wrap {
-  padding-bottom: 10rem;    /* Footer height */
-}
     #main > div {
         margin: 0 auto;
         text-align: center;
-    }
-    .page-footer {
-        position: absolute;
-        bottom: 0;
-        width: 100%;
-        height: 10rem;            /* Footer height */
-        background: #007bff;;
     }
     #main > div, h1, h2 {
         margin: 0 auto;
@@ -194,15 +203,10 @@
         margin: 0.5em 0 0 0;
     }
     .page-footer {
-    position: absolute;
-    bottom: 0;
-    width: 100%;
-    height: 10rem;            /* Footer height */
+    flex-shrink: 0;
     background: #007bff;
-    padding: 1em 3em 0em 3em;    
-}
-#page-container > footer > div.footer-copyright.text-center{
-    padding-bottom: 0;
-    width: 100%;
-}
+    padding: 1em 3em 0em 3em;
+    margin-top: 2em;    
+  }
+
 </style>

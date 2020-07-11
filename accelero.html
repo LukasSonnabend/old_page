@@ -20,12 +20,12 @@
                     <a class="nav-link" href="./projects.html">Projects</a>
                   </li>
                 <li class="nav-item dropdown">
-                  <a class="nav-link dropdown-toggle" href="" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                  <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                     JavaScript
                   </a>
                   <div class="dropdown-menu" aria-labelledby="navbarDropdown">
                     <a class="dropdown-item" href="flappyClone.html" target="_blank" rel="noopener noreferrer">flappyClone</a>
-                    <a class="dropdown-item" href="./accelero.html" target="_blank" rel="noopener noreferrer">Accelero</a>
+                    <a class="dropdown-item active" href="./accelero.html" target="_blank" rel="noopener noreferrer">Accelero</a>
                   </div>
                 </li>
                 <li class="nav-item">
@@ -35,11 +35,21 @@
                     <a class="nav-link disabled" href="#" tabindex="-1" aria-disabled="true">C++</a>
                   </li>
               </ul>
+              <ul class="navbar-nav ml-auto">
+                <li class="nav-item">
+                    <a class="nav-link" href="https://www.linkedin.com/in/lukas-sonnabend-8b1323105/" target="_blank" rel="noopener noreferrer"><img height="30px"src="https://content.linkedin.com/content/dam/me/business/en-us/amp/brand-site/v2/bg/LI-Logo.svg.original.svg"></a>
+                </li>
+            </ul>
             </div>
           </nav>
           <!-- Navbar end -->
     <canvas id="playArea"></canvas>
     <h1 id="doeSupported"></h1>
+    <!-- Optional JavaScript -->
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
 
 </body>
 
@@ -98,28 +108,35 @@
 
     var obstacleX = 10;
     var obstacleY = 10;
-
+    var color = "grey";
     function draw(ctx){        
         draw_grid(ctx, 50);
         ctx.beginPath();
         ctx.arc(x, y, 100, 0.2 * Math.PI, 2.8 * Math.PI);
         ctx.fill();
-        if (y > canvas.height / 2){
-            ctx.fillStyle = "yellow";
-        }
-        else{
-            ctx.fillStyle = "green";
-        }
+        ctx.fillStyle = color;
+
+        // 0ld color logic
+        // if (y > canvas.height / 2){
+        //     ctx.fillStyle = "yellow";
+        // }
+        // else{
+        //     ctx.fillStyle = "green";
+        // }
+        
+        
         ctx.stroke();
 
         ctx.save();
         ctx.beginPath();
-        ctx.moveTo(obstacleX, obstacleY);
-        ctx.lineTo(obstacleX+60, obstacleY+60);
-        ctx.lineTo(obstacleX, obstacleY+60);
-        ctx.closePath();
-        ctx.strokeStyle = "red";
-        ctx.stroke();
+        ctx.arc(obstacleX, obstacleY, 30, 0.2 * Math.PI, 2.8 * Math.PI);
+        ctx.fillStyle = "red";
+        ctx.fill();
+        
+        
+        ctx.font = "40px serif";
+        ctx.textAlign = "center";
+        ctx.fillText("Score: " + score, canvas.width/2 , canvas.height -300);
         ctx.restore();
     }  
 
@@ -135,12 +152,12 @@
         properties += x;
         //output.innerHTML=properties;
 
-        if (event.beta > 1 && y < canvas.height- 100 || event.beta < -1 && y >100){
-            y += event.beta;
+        if (event.beta > 0.8 && y < canvas.height- 100 || event.beta < -1 && y >100){
+            y += event.beta * 1.2;
             }
             
-        if (event.gamma > 1 && x < canvas.width - 100 || event.gamma < -1 && x > 100 ){
-            x += event.gamma;
+        if (event.gamma > 0.8 && x < canvas.width - 100 || event.gamma < -1 && x > 100 ){
+            x += event.gamma * 1.2;
         }
     }
     window.addEventListener('deviceorientation', handleOrientation);
@@ -177,23 +194,23 @@
         x = window.innerWidth / 2;
     }
 
-    var directionX = 1;
-    var directionY = 1;
+    var directionX = 3;
+    var directionY = 3;
     function moveObstacle(){
         
         if (obstacleY > canvas.height){
-            directionY = -1;    
+            directionY *= -1;    
         }
         if (obstacleY <= 0 ){
             directionY *= -1;
         }
 
         if (obstacleX <= 0){
-            directionX = 0.8;    
+            directionX *= -1;    
         }
 
         if (obstacleX > canvas.width){
-            directionX = -0.8;    
+            directionX *= -1;    
         }
 
 
@@ -203,7 +220,25 @@
         
     }
     
+    var score = 0;
+    function scoring(){
+        var xDist = obstacleX - x;
+        var yDist = obstacleY - y;
+        let distance = Math.sqrt((xDist*xDist)+(yDist*yDist))
+        if (distance <= 75){
+            score +=1;
+            color = "green";
+        }
+        else{
+            color = "grey";
+        }
+
+    }
+
+
+
     setInterval(moveObstacle, 1/60);
+    setInterval(scoring, 1000/60);
 
 </script>
 <style>
