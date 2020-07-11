@@ -72,21 +72,15 @@
             <img class="card-img-top" src="https://upload.wikimedia.org/wikipedia/commons/thumb/c/c3/Python-logo-notext.svg/1024px-Python-logo-notext.svg.png" alt="Card image cap">
             </div>
         </div>
-        
-        
       </div>
       </div>
-
-
-
-        <footer class="page-footer blue">
-            <div class="col-md-6 mt-md-0 mt-3">
-                <h5 class="text-uppercase">Lukas Sonnabend</h5>
-                <p>This page is brought to you by GitHub Pages</p>
-                <p>All trademarks, logos and names belong to their respective owners.</p>
-            </div>
-            <div class="footer-copyright text-center">© 2020 Copyright: Lukas Sonnabend</div>
-        </footer>  
+      <footer class="page-footer blue">
+        <div id="topFooter" class="col-md-6 mt-md-0 mt-3">
+          <h5 class="text-uppercase">Lukas Sonnabend</h5>
+          <p>This page is brought to you by <a href="https://pages.github.com/" target="_blank" rel="noopener noreferrer">GitHub Pages</a></p>
+        </div>
+        <div id="bottomFooter" class="footer-copyright text-center">© 2020 Copyright: Lukas Sonnabend</div>
+      </footer>  
       </div>
 
  
@@ -111,9 +105,20 @@
   .page-footer {
     flex-shrink: 0;
     background: #007bff;
-    padding: 1em 3em 0em 3em;
-    margin-top: 2em;    
+        
   }
+
+  #topFooter{
+    padding: 1em 3em 0em 3em;
+    margin-top: 2em;
+    width:100%;
+  }
+
+  #bottomFooter{
+    background:#003E80;
+    color: white;
+  }  
+
   #techStack{
     display: flex;
     align-items: center;
@@ -123,6 +128,9 @@
     border: none;
   }
 
+  footer a{
+    color: white;
+  }
   #page-container {
     position: relative;
     min-height: 100%;    

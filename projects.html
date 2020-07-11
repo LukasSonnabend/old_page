@@ -62,7 +62,7 @@
             <div class="card-header">
                 Flappy Bird Clone
               </div>
-            <img src="https://via.placeholder.com/80" class="card-img-top" alt="...">
+              <img src="https://i.ibb.co/yBGjH1m/flappy-Logo.jpg" alt="flappy-Logo">
             <div class="card-body">
               <ul id="status" class="list-group list-group-flush">
                 <li style="background: lightgreen; font-weight: bold" class="list-group-item">Status: Work in Progress</li>
@@ -81,12 +81,12 @@
                     <div class="card-header">
                         Accelero
                       </div>
-                    <img src="https://via.placeholder.com/80" class="card-img-top" alt="...">
+                      <img src="https://i.ibb.co/tsXNwgL/accelero-Logo.jpg" alt="accelero-Logo">
                     <div class="card-body">
                       <ul id="status" class="list-group list-group-flush">
                         <li style="background: lightgreen; font-weight: bold" class="list-group-item">Status: Prototype</li>
                       </ul>
-                    <p class="card-text">Reads Accelerometer of supported devices and moves object accordingly.</p>
+                    <p class="card-text">Reads Accelerometer of supported devices and moves object accordingly.<br><span style="font-weight: bold;">Android Only</span></p>
                     <div id="centered">
                         <a href="./accelero.html"><button type="button" class="btn btn-primary">Demo</button></a>
                         <a href="https://github.com/LukasSonnabend/lukassonnabend.github.io/blob/master/accelero.html"><button type="button" class="btn btn-secondary">Code</button></a>
@@ -100,7 +100,7 @@
                   <div class="card-header">
                       Pong
                     </div>
-                  <img src="https://via.placeholder.com/80" class="card-img-top" alt="...">
+                    <img src="https://i.ibb.co/SrSPYxd/pongLogo.jpg" alt="pongLogo" >
                   <div class="card-body">
                     <ul id="status" class="list-group list-group-flush">
                       <li style="background: lightgreen; font-weight: bold" class="list-group-item">Status: Work in Progress</li>
@@ -123,7 +123,7 @@
           <div class="card-header">
               Travelino
             </div>
-          <img src="https://via.placeholder.com/80" class="card-img-top" alt="...">
+            <img src="https://i.ibb.co/0qXqJPM/travelino-Logo.jpg" alt="travelino-Logo">
           <div class="card-body">
             <ul id="status" class="list-group list-group-flush">
               <li style="background: yellow; font-weight: bold" class="list-group-item">Status: abandoned</li>
@@ -147,11 +147,11 @@
     
     </div>
     <footer class="page-footer blue">
-        <div class="col-md-6 mt-md-0 mt-3">
+        <div id="topFooter" class="col-md-6 mt-md-0 mt-3">
           <h5 class="text-uppercase">Lukas Sonnabend</h5>
-          <p>This page is brought to you by GitHub Pages</p>
+          <p>This page is brought to you by <a href="https://pages.github.com/" target="_blank" rel="noopener noreferrer">GitHub Pages</a></p>
         </div>
-        <div class="footer-copyright text-center">© 2020 Copyright: Lukas Sonnabend</div>
+        <div id="bottomFooter" class="footer-copyright text-center">© 2020 Copyright: Lukas Sonnabend</div>
     </footer>  
     </div>
     <!-- Optional JavaScript -->
@@ -212,21 +212,37 @@
         max-width: 120px;
         margin: 0 auto;
         margin-top: 20px;
+        border: 2px solid black;
     }
-    .card-text {
-        min-height: 100px;
-    }
+
     .card-body{
         padding-bottom: 0;
     }
+  @media screen and (min-width: 500px){
+
+    .card-text {
+        min-height: 100px;
+    }
+  }
+
     label{
         margin: 0.5em 0 0 0;
     }
     .page-footer {
     flex-shrink: 0;
     background: #007bff;
-    padding: 1em 3em 0em 3em;
-    margin-top: 2em;    
+        
   }
+
+  #topFooter{
+    padding: 1em 3em 0em 3em;
+    margin-top: 2em;
+    width:100%;
+  }
+
+  #bottomFooter{
+    background:#003E80;
+    color: white;
+  }  
 
 </style>
