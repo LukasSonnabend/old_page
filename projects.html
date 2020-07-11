@@ -58,7 +58,7 @@
             <img src="https://via.placeholder.com/80" class="card-img-top" alt="...">
             <div class="card-body">
               <ul id="status" class="list-group list-group-flush">
-                <li style="background: lightgreen; font-weight: bold" class="list-group-item">Current status: <br> Work in Progress</li>
+                <li style="background: lightgreen; font-weight: bold" class="list-group-item">Status: Work in Progress</li>
               </ul>
                 <p class="card-text">My first attempt at a JavaScript based Game. A rough implementation to learn the basics.</p>
                 <div id="centered">
@@ -76,7 +76,7 @@
                     <img src="https://via.placeholder.com/80" class="card-img-top" alt="...">
                     <div class="card-body">
                       <ul id="status" class="list-group list-group-flush">
-                        <li style="background: lightgreen; font-weight: bold" class="list-group-item">Current status: Prototype</li>
+                        <li style="background: lightgreen; font-weight: bold" class="list-group-item">Status: Prototype</li>
                       </ul>
                     <p class="card-text">Reads Accelerometer of supported devices and moves object accordingly.</p>
                     <div id="centered">
@@ -98,7 +98,7 @@
           <img src="https://via.placeholder.com/80" class="card-img-top" alt="...">
           <div class="card-body">
             <ul id="status" class="list-group list-group-flush">
-              <li style="background: yellow; font-weight: bold" class="list-group-item">Current status: abandoned</li>
+              <li style="background: yellow; font-weight: bold" class="list-group-item">Status: abandoned</li>
             </ul>
               <p class="card-text">Using Flask the idea was to create a trip planning app. Everything is server side and thus a bit slow
                 and the main reason i abandoned the project as of now.
@@ -165,7 +165,10 @@
       margin-bottom: 16px;
       text-align: center;
     }
-    
+    #status li{
+      min-height: 2em;
+    }
+
     #projCards{
         display: flex;
         flex-wrap: wrap;
