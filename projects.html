@@ -26,7 +26,7 @@
               </li>
             <li class="nav-item dropdown">
               <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                Dropdown
+                JavaScript
               </a>
               <div class="dropdown-menu" aria-labelledby="navbarDropdown">
                 <a class="dropdown-item" href="flappyClone.html" target="_blank" rel="noopener noreferrer">flappyClone</a>
@@ -58,6 +58,9 @@
             <img src="https://via.placeholder.com/80" class="card-img-top" alt="...">
             <div class="card-body">
                 <p class="card-text">My first attempt at a JavaScript based Game. A rough implementation to learn the basics.</p>
+                <ul id="status" class="list-group list-group-flush">
+                  <li style="background: lightgreen; font-weight: bold" class="list-group-item">Current status: <br> Work in Progress</li>
+                </ul>
                 <div id="centered">
                     <a href="./flappyClone.html"><button type="button" class="btn btn-primary">Demo</button></a>
                 </div>
@@ -72,6 +75,9 @@
                       </div>
                     <img src="https://via.placeholder.com/80" class="card-img-top" alt="...">
                     <div class="card-body">
+                      <ul id="status" class="list-group list-group-flush">
+                        <li style="background: lightgreen; font-weight: bold" class="list-group-item">Current status: Prototype</li>
+                      </ul>
                     <p class="card-text">Reads Accelerometer of supported devices and moves object accordingly.</p>
                     <div id="centered">
                         <a href="./accelero.html"><button type="button" class="btn btn-primary">Demo</button></a>
@@ -82,11 +88,40 @@
             </li>
         </ul>
     </div>
+    <h2>Python</h2>
+    <ul id="projCards">
+      <li>
+      <div class="card" style="width: 18rem;">
+          <div class="card-header">
+              Travelino
+            </div>
+          <img src="https://via.placeholder.com/80" class="card-img-top" alt="...">
+          <div class="card-body">
+            
+              <p class="card-text">Using Flask the idea was to create a trip planning app. Everything is server side and thus a bit slow
+                and the main reason i abandoned the project as of now.
+              </p>
+              <p style="text-align: center;">
+                Hosted on Heroku
+              </p>
+              <ul id="status" class="list-group list-group-flush">
+                <li style="background: yellow; font-weight: bold" class="list-group-item">Current status: abandoned</li>
+              </ul>
+              <div id="centered">
+                  <a href="http://travelino12.herokuapp.com/base"><button type="button" class="btn btn-primary">Demo</button></a>
+              </div>
+              <label>Last Update 10.03.2020</label>
+          </div>
+        </div>
+      </li>
+      </ul>
+
+    
     </div>
     <footer class="page-footer blue">
         <div class="col-md-6 mt-md-0 mt-3">
-            <h5 class="text-uppercase">Footer Content</h5>
-            <p>Here you can use rows and columns to organize your footer content.</p>
+          <h5 class="text-uppercase">Lukas Sonnabend</h5>
+          <p>This page is brought to you by GitHub Pages</p>
         </div>
         <div class="footer-copyright text-center">© 2020 Copyright: Lukas Sonnabend</div>
     </footer>  
@@ -107,7 +142,6 @@
     #content-wrap {
   padding-bottom: 10rem;    /* Footer height */
 }
-
     #main > div {
         margin: 0 auto;
         text-align: center;
@@ -127,6 +161,11 @@
         text-align: center;
     }
 
+    #status{
+      margin-bottom: 16px;
+      text-align: center;
+    }
+    
     #projCards{
         display: flex;
         flex-wrap: wrap;
