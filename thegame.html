@@ -1,0 +1,208 @@
+<!DOCTYPE html>
+<head>
+    <title>Platformer</title>
+    <script src="drawing.js"> </script>
+</head>
+
+<body>
+    <h1>The Game</h1>
+    <canvas id="platform"></canvas>
+    <h3>Game Map by line</h3>
+    <p id="output0"></p>
+    <p id="output1"></p>
+    <p id="output2"></p>
+    <p id="output3"></p>
+    <p id="output4"></p>
+    <p id="output5"></p>
+    <p id="output6"></p>
+    <p id="output7"></p>
+    <p id="output8"></p>
+    <p id="output9"></p>
+    <p id="output10"></p>
+    <p id="output11"></p>
+    <p id="output12"></p>
+    <p id="output13"></p>
+    <p id="output14"></p>
+    <p id="output15"></p>
+</body>
+
+<script>
+    let canvas = document.getElementById("platform");
+    let context = canvas.getContext("2d");
+    canvas.height = 300;
+    canvas.width = 600;
+
+    function frame(){
+        context.clearRect(0, 0, context.canvas.width, context.canvas.height);
+        draw(context);
+    }
+
+    function draw(ctx){        
+        draw_grid(ctx);
+        draw_box(ctx);
+    }
+
+    setInterval(frame, 1000);
+    
+    window.onload = function() {
+    get_map();
+    };
+    
+    var lineString;
+    
+    function get_map(){
+        lineString = map.split("\n");
+        //split map to lines
+            document.getElementById("output0").innerHTML = lineString[0];
+            document.getElementById("output1").innerHTML = lineString[1];
+            document.getElementById("output2").innerHTML = lineString[2];
+            document.getElementById("output3").innerHTML = lineString[3];
+            document.getElementById("output4").innerHTML = lineString[4];
+            document.getElementById("output5").innerHTML = lineString[5];
+            document.getElementById("output6").innerHTML = lineString[6];
+            document.getElementById("output7").innerHTML = lineString[7];
+            document.getElementById("output8").innerHTML = lineString[8];
+            document.getElementById("output9").innerHTML = lineString[9];
+            document.getElementById("output10").innerHTML = lineString[10];
+            document.getElementById("output11").innerHTML = lineString[11];
+            document.getElementById("output12").innerHTML = lineString[12];
+            document.getElementById("output13").innerHTML = lineString[13];
+            document.getElementById("output14").innerHTML = lineString[14];
+            document.getElementById("output15").innerHTML = lineString[15];
+            
+        //split to single characters
+        var line;
+
+
+    }
+
+    var xStart = 0;
+    var yStart = 0;
+    function draw_box(ctx){
+        context.save();
+        context.fillStyle = "white";
+        context.rect(0,0, canvas.width, canvas.height);
+        context.fill();
+        context.restore();            
+                                //replace 1 with lineString.length
+        for (line = 0; line <= 15; line++){
+            xStart = 0;
+            if(line == 0){
+                yStart = 0;
+                }
+            else{
+                yStart += 20;
+            }
+            
+            var lineNo = lineString[line];
+            for(let charNo = 0; charNo <= 47; charNo++ ){
+                switch(lineNo[charNo]){
+                    case "r":
+                        context.save();
+                        context.fillStyle ="black";
+                        context.beginPath();
+                        context.moveTo(xStart, yStart);
+                        yStart += 20;
+                        context.lineTo(xStart, yStart);
+                        xStart += 20;
+                        context.lineTo(xStart, yStart);
+                        yStart -= 20;
+                        context.lineTo(xStart, yStart);
+                        context.fill();
+                        context.stroke();
+                        context.restore();
+
+                    break;
+                    case ".":
+                    // context.save();
+                    // context.fillStyle = "white";
+                    // context.strokeStyle ="white";
+                    // context.beginPath();
+                    //     context.moveTo(xStart, yStart);
+                         yStart += 20;
+                    //     context.lineTo(xStart, yStart);
+                         xStart += 20;
+                    //     context.lineTo(xStart, yStart);
+                         yStart -= 20;
+                    //     context.lineTo(xStart, yStart);
+                    //     context.fill();
+                    //     context.stroke();
+                    //     context.restore();
+                    break;
+
+                    case "l":
+                    context.save();
+                    context.fillStyle = "red";
+                    context.strokeStyle ="red";
+                    context.beginPath();
+                        context.moveTo(xStart, yStart);
+                        yStart += 20;
+                        context.lineTo(xStart, yStart);
+                        xStart += 20;
+                        context.lineTo(xStart, yStart);
+                        yStart -= 20;
+                        context.lineTo(xStart, yStart);
+                        context.fill();
+                        context.stroke();
+                        context.restore();
+                    break;
+                    case "c":
+                    context.save();
+                    context.fillStyle = "yellow";
+                    context.strokeStyle ="yellow";
+                    context.beginPath();
+                        context.moveTo(xStart, yStart);
+                        yStart += 20;
+                        context.lineTo(xStart, yStart);
+                        xStart += 20;
+                        context.lineTo(xStart, yStart);
+                        yStart -= 20;
+                        context.lineTo(xStart, yStart);
+                        context.fill();
+                        context.stroke();
+                        context.restore();
+                    break;
+                }
+            }
+        }
+
+
+        ctx.beginPath();
+        ctx.moveTo(0,0);
+        ctx.lineTo(0, 20);
+        ctx.lineTo(20, 20);
+        ctx.lineTo(20, 0);
+        ctx.fill();
+        
+    }
+
+    let map = ` ..............................
+                .............................r
+                cc............................
+                rr............................
+                .....rr.......................
+                .......rr.....................
+                ..............................
+                ...........rr.................
+                .........rr...................
+                .......rr.....................
+                ....rrr.......................
+                ..............................
+                ..............................
+                rrrrrrrrrrrrlllllllrrrrrrrrrrr
+                rrrrrrrrrrrrlllllllrrrrrrrrrrr`;
+
+
+
+</script>
+
+<style>
+    body{
+        background-color: aqua;
+        text-align: center;
+    }
+    canvas{
+        background: white;
+    }
+
+</style>
