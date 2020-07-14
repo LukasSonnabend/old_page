@@ -76,16 +76,18 @@ function collision_function(){
         }
         ballySpeed *= -1;
     }
-            //collision player 2
-            if (ballY + 30 >= player2Y){
-                if(ballX >= player2X - 75/2 && ballX <= player2X + 75){
-                    ballySpeed = -5;
-                }
-            }
             //collision player 1
             if (ballY - 30 <= player1Y){
-                if(ballX >= player1X - 75/2 && ballX <= player1X + 75){
-                    ballySpeed = 5;
+                if(ballX >= player1X-25 && ballX <= player1X + 80){
+                    ballySpeed = 5.6;
                 }
+            }
+
+            //collision player 2
+            if (ballY + 30 >= player2Y){
+            if(ballX >= player2X-25 && ballX <= player2X + 80){
+                ballySpeed = -5.6;
+                }
+                
             }
 }
