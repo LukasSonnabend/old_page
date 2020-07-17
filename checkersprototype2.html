@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<head>
+    <script src="checkers.js"></script>
+    <title>DOM Game</title>
+</head>
+<body>
+    <h1>Dom Game</h1>
+    <p id="output"></p>
+
+    <div id="game">
+        <div id="turnIndicator">
+            <div id="liLoop0"></div>
+            <div id="liLoop1"></div>
+            <div id="liLoop2"></div>
+            <div id="liLoop3"></div>
+            <div id="liLoop4"></div>
+            <div id="liLoop5"></div>
+            <div id="liLoop6"></div>
+            <div id="liLoop7"></div>
+        </div>
+    </div>
+</body>
+<script>
+
+let boardState = {
+    "0": ["E", "X", "E", "X", "E", "X", "E", "X"],
+	"1": ["X", "E", "X", "E", "X", "E", "X", "E"],
+	"2": ["E", "X", "E", "X", "E", "X", "E", "X"],
+	"3": ["E", "E", "E", "E", "E", "E", "E", "E"],
+	"4": ["E", "E", "E", "E", "E", "E", "E", "E"],
+	"5": ["O", "E", "O", "E", "O", "E", "O", "E"],
+	"6": ["E", "O", "E", "O", "E", "O", "E", "O"],
+	"7": ["O", "E", "O", "E", "O", "E", "O", "E"]
+};
+
+drawBoard();
+var turnActive = false;
+var savedBoard;
+var oldY;
+var oldX;
+
+
+    
+</script>
+<style>
+    .field{
+        vertical-align: top;
+        text-align: center;
+        font-size: 20px;
+        height: 20px;
+        display: inline-block;
+    }
+    #game{
+        text-align: center;
+    }
+
+    #turnIndicator{
+        margin: 0 auto;
+        width: 160px;
+        border-top: 2px solid green;
+    }
+
+</style>
