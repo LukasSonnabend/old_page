@@ -24,6 +24,19 @@
     </div>
 </body>
 <script>
+
+let boardState = {
+    "0": ["E", "X", "E", "X", "E", "X", "E", "X"],
+	"1": ["X", "E", "X", "E", "X", "E", "X", "E"],
+	"2": ["E", "X", "E", "X", "E", "X", "E", "X"],
+	"3": ["E", "E", "E", "E", "E", "E", "E", "E"],
+	"4": ["E", "E", "E", "E", "E", "E", "E", "E"],
+	"5": ["O", "E", "O", "E", "O", "E", "O", "E"],
+	"6": ["E", "O", "E", "O", "E", "O", "E", "O"],
+	"7": ["O", "E", "O", "E", "O", "E", "O", "E"]
+};
+
+
     //make border-top or border-bottom green based on who's turn it is
     let turn = 0;
 
@@ -114,6 +127,12 @@
         }
         string = "";
     }
+    let turnStatus = 0;
+    let oldChar;
+    let oldColorM1;
+    let oldColorM2;
+    let moves;
+    
 
 
     //.map interates over every item in array and spits out new array
