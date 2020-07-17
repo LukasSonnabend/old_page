@@ -76,6 +76,8 @@ function collision_function(){
         }
         ballySpeed *= -1;
     }
+    
+    //add that if ball hits end of paddle reverse ballxSpeed to
             //collision player 1
             if (ballY - 30 <= player1Y){
                 if(ballX >= player1X-25 && ballX <= player1X + 80){
