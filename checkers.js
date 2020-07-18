@@ -9,7 +9,6 @@ function calcMoves(y, x){
         savedBoard = JSON.parse(JSON.stringify(boardState));
         oldY = y;
         oldX = x;
-        console.log("Turn active: " + turnActive);
         let char = boardState[y][x];
         console.log(JSON.stringify(boardState))
         //start with standard  player
@@ -17,26 +16,71 @@ function calcMoves(y, x){
        
         if( char == "O" ){
             if (boardState[y-1][x-1] != "O" || boardState[y-1][x+1] != "O" ){
+            saveChar = "O"
             boardState[y][x] = " ";
             y = y-1;
+            
             boardState[y][x-1] = "M";
             boardState[y][x+1] = "M";
             turnActive = true;
+            console.log("Turn active: " + turnActive);
         }
-        
+        }
 
-        }
         if( char == "X" ){
+            if (boardState[y+1][x-1] != "X" || boardState[y+1][x+1] != "X" ){
+            saveChar = "X"
+            boardState[y][x] = " ";
             y = y+1;
-            boardState[y][x-1] = "M";
-            boardState[y][x+1] = "M";
+            //replace with while loop that gets coordinates of next "E" field
+            if( boardState[y][x-1] != "O"){
+                boardState[y][x-1] = "M";
+            }
+            if ( boardState[y][x+1] != "O"){
+                boardState[y][x+1] = "M";
+            }
+            //end replace
+            
+
+            turnActive = true;
+            console.log("Turn active: " + turnActive);
         }
+        }
+        console.log("Possilbe moves: " + JSON.stringify(boardState));
+
     }
     else{
         console.log( x +" , "+oldX );
         console.log( y +" , "+oldY );
+        //handle empty fields
+        if( boardState[y][x] == "M"){
+            console.log("Move is Possible")
+            boardState[y][x] = saveChar;
+            turnActive = false;
+            endMove();
+        }
+
+
+        //handle fields with enemy object
+
+
+
+
+
+
+        //reset if click is on same field again
         if(y == oldY && x == oldX){
             resetMove(y, x);
+        }
+    }
+}
+
+function endMove(){
+    for(var i=0; i < 8; i++){
+        for(var j=0; j < 8; j++){
+            if(boardState[i][j] == "M"){
+                boardState[i][j] = savedBoard[i][j];
+            }
         }
     }
 }
@@ -44,7 +88,9 @@ function calcMoves(y, x){
 function resetMove(){
     turnActive = false;
     boardState = savedBoard;
+    console.log("Turn active: " + turnActive);
 }
+
 
 
 
