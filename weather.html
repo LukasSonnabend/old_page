@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<head>
+    <title>Weather Dashboard</title>
+</head>
+<body onload="getLocation()">
+    <p id="output"></p>
+</body>
+<script>
+        let x =  document.getElementById("output");
+        function getLocation(){
+            if ( navigator.getLocation ) {
+                navigator.geolocation.getCurrentPosition( showPosition );
+            } else {
+                x.innerHTML = "Geolocation is not supported by your browser.";            
+            }
+        }
+
+        document.getElementById("output").innerHTML = "Bitch";
+
+</script>
