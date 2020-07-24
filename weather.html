@@ -1,20 +1,33 @@
 <!DOCTYPE html>
+<html lang="en">
 <head>
-    <title>Weather Dashboard</title>
-</head>
-<body onload="getLocation()">
-    <p id="output"></p>
+<meta charset="utf-8">
+<title>Weather with Geolocation</title>
+<body>
+        <p id="output"></p>
+
 </body>
 <script>
-        let x =  document.getElementById("output");
-        function getLocation(){
-            if ( "geolocation" in navigator ) {
-                navigator.geolocation.getCurrentPosition( showPosition );
-            } else {
-                x.innerHTML = "Geolocation is not supported by your browser.";            
-            }
-        }
+var options = {
+  enableHighAccuracy: true,
+  timeout: 5000,
+  maximumAge: 0
+};
 
-        
+function success(pos) {
+  var crd = pos.coords;
 
+  console.log('Your current position is:');
+  console.log(`Latitude : ${crd.latitude}`);
+  console.log(`Longitude: ${crd.longitude}`);
+  console.log(`More or less ${crd.accuracy} meters.`);
+}
+
+function error(err) {
+  console.warn(`ERROR(${err.code}): ${err.message}`);
+}
+
+navigator.geolocation.getCurrentPosition(success, error, options);
 </script>
+</head>
+</html>
