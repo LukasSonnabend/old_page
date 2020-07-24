@@ -8,13 +8,13 @@
 <script>
         let x =  document.getElementById("output");
         function getLocation(){
-            if ( navigator.getLocation ) {
+            if ( "geolocation" in navigator ) {
                 navigator.geolocation.getCurrentPosition( showPosition );
             } else {
                 x.innerHTML = "Geolocation is not supported by your browser.";            
             }
         }
 
-        document.getElementById("output").innerHTML = "Bitch";
+        
 
 </script>
